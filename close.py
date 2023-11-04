@@ -1,11 +1,16 @@
 import pandas as pd
 
-# dataset = [['A', 'B', 'C', 'D', 'E'],
-#            ['A', 'B'],
-#            ['C', 'E'],
-#            ['A', 'B', 'D', 'E'],
-#            ['A', 'C', 'D']]
+dataset = [['A', 'B', 'C', 'D', 'E'],
+           ['A', 'B'],
+           ['C', 'E'],
+           ['A', 'B', 'D', 'E'],
+           ['A', 'C', 'D']]
 
+dataset1 = [['coffee', 'tea', 'bread', 'limonad'],
+           ['coffee', 'tea'],
+           ['bread', 'cola'],
+           ['coffee', 'tea', 'limonad', 'cola'],
+           ['coffee', 'bread', 'limonad']]
 
 def calculate_support(dataset, item):
 
@@ -53,6 +58,7 @@ def generate_candidate_itemsets(frequent_itemsets_k):
                 # Create a new candidate (k+1)-itemset by joining the two k-itemsets.
                 new_itemset = ''.join(sorted(set(frequent_itemsets_k[i] + frequent_itemsets_k[j])))
                 candidate_itemsets_k_plus_1.append(new_itemset)
+
 
     return candidate_itemsets_k_plus_1
 
