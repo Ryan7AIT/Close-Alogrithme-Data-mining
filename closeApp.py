@@ -4,6 +4,7 @@ from tkinter import filedialog
 import csv
 from close import close
 from tkinter import ttk
+import math
 
 #input : minsup&&database
 
@@ -19,7 +20,7 @@ class MyWindow:
         self.lbl0=Label(win, text='Welcome to close algorithme ')
         self.lbl0.place(x=350, y=10)
         
-        self.lbl1=Label(win, text='Give the value of minsup')
+        self.lbl1=Label(win, text='The value of the minsup for ur problem will be:')
         self.lbl2=Label(win, text='import the data base') 
          
         self.t1=Entry()
@@ -53,7 +54,7 @@ class MyWindow:
         pass
         data = {}
         # #self.t3.delete(0, 'end')
-        minsup= float(self.t1.get())
+        # minsup= float(self.t1.get())
         filepath= self.filename
 
         # print(minsup)
@@ -101,6 +102,11 @@ class MyWindow:
         #    ['A', 'B', 'D', 'E'],
         #    ['A', 'C', 'D']]
         
+        minsup = math.exp(-0.4 * len(database) - 0.2) + 0.2
+
+
+        self.t1.insert(END, str(minsup))
+
         df = close(database,minsup)
 
 
